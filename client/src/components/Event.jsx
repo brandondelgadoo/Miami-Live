@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import FallbackImage from './FallbackImage'
+import Countdown from './Countdown'
 import { formatEventDate, formatEventTime, formatPrice } from '../utils/format'
 
 const Event = ({ event, showLocation = false }) => {
@@ -31,6 +32,8 @@ const Event = ({ event, showLocation = false }) => {
         )}
 
         <p className="event-card-description">{event.description}</p>
+
+        <Countdown startTime={event.start_time} />
       </div>
     </article>
   )

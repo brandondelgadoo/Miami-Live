@@ -779,3 +779,54 @@ img {
   margin: 16px 0;
   font-size: 0.9rem;
 }
+
+/* ---------- Countdown ---------- */
+.countdown {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.countdown-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.countdown-units {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 4px;
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+
+.countdown-unit strong {
+  font-size: 1.2rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.countdown-unit small {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.countdown-soon .countdown-label {
+  color: var(--amber);
+}
+
+.countdown-soon .countdown-unit {
+  background: color-mix(in srgb, var(--amber) 16%, var(--surface-2));
+}
