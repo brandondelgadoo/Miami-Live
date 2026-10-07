@@ -2,6 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import locationsRouter from './routes/locations.js'
+import eventsRouter from './routes/events.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -13,8 +15,14 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/api', (req, res) => {
-  res.status(200).json({ message: 'Miami Live API' })
+  res.status(200).json({
+    message: 'Miami Live API',
+    endpoints: ['/api/locations', '/api/locations/:id', '/api/locations/:id/events', '/api/events', '/api/events/:id']
+  })
 })
+
+app.use('/api/locations', locationsRouter)
+app.use('/api/events', eventsRouter)
 
 // In production, serve the built React app from client/dist
 if (process.env.NODE_ENV === 'production') {
