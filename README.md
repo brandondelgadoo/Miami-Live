@@ -4,7 +4,7 @@ Submitted by: **Brandon Delgado**
 
 About this web app: **Miami Live is a virtual community space for Miami's music scene. An interactive map of Miami shows five venues (Kaseya Center, The Fillmore Miami Beach, Ball & Chain, Club Space and Oasis Wynwood). Click a pin or a venue card to open that venue's page and see its upcoming and past shows. An All Events page lists every show in the city, with filters and sorting, and each upcoming show has a live countdown.**
 
-Time spent: **X** hours
+Time spent: **4** hours
 
 ## Required Features
 
