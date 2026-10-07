@@ -1,10 +1,14 @@
 import { useRoutes } from 'react-router-dom'
 import Header from './components/Header'
 import Locations from './pages/Locations'
+import LocationEvents from './pages/LocationEvents'
+import NotFound from './pages/NotFound'
 
 const App = () => {
   const element = useRoutes([
-    { path: '/', element: <Locations /> }
+    { path: '/', element: <Locations /> },
+    { path: '/locations/:id', element: <LocationEvents /> },
+    { path: '*', element: <NotFound /> }
   ])
 
   return (
