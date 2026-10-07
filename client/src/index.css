@@ -692,3 +692,90 @@ img {
   color: var(--muted);
   font-size: 0.95rem;
 }
+
+/* ---------- All events: filters ---------- */
+.hero-compact {
+  margin-bottom: 24px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.chip:hover {
+  color: var(--text);
+  border-color: var(--accent, var(--teal));
+}
+
+.chip.is-selected {
+  color: var(--text);
+  border-color: var(--accent, var(--teal));
+  background: color-mix(in srgb, var(--accent, var(--teal)) 18%, transparent);
+}
+
+.chip-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.select-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.select select {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.results-count {
+  margin: 16px 0;
+  font-size: 0.9rem;
+}
