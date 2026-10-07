@@ -12,7 +12,7 @@ const project = (latitude, longitude) => ({
 })
 
 const NEIGHBORHOOD_LABELS = [
-  { text: 'WYNWOOD', x: 230, y: 60 },
+  { text: 'WYNWOOD', x: 60, y: 120 },
   { text: 'DOWNTOWN', x: 250, y: 300 },
   { text: 'LITTLE HAVANA', x: 70, y: 470 },
   { text: 'SOUTH BEACH', x: 790, y: 470 }
