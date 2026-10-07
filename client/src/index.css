@@ -830,3 +830,56 @@ img {
 .countdown-soon .countdown-unit {
   background: color-mix(in srgb, var(--amber) 16%, var(--surface-2));
 }
+
+/* ---------- Past events ---------- */
+.event-card-media {
+  position: relative;
+}
+
+.past-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(13, 11, 30, 0.85);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.event-card.is-past {
+  background: color-mix(in srgb, var(--surface) 70%, var(--bg));
+  border-style: dashed;
+}
+
+.event-card.is-past .event-card-image {
+  filter: grayscale(1) brightness(0.55);
+}
+
+.event-card.is-past .event-card-body {
+  opacity: 0.6;
+}
+
+.event-card.is-past h3 {
+  text-decoration: line-through;
+  text-decoration-color: var(--danger);
+  text-decoration-thickness: 2px;
+}
+
+.event-card.is-past .tag {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.event-card.is-past .event-card-when {
+  color: var(--muted);
+}
+
+.event-card.is-past:hover {
+  transform: none;
+  border-color: var(--border);
+}

@@ -1,14 +1,20 @@
 import { Link } from 'react-router-dom'
 import FallbackImage from './FallbackImage'
 import Countdown from './Countdown'
+import useNow from '../hooks/useNow'
 import { formatEventDate, formatEventTime, formatPrice } from '../utils/format'
 
 const Event = ({ event, showLocation = false }) => {
+  const now = useNow()
+  const isPast = new Date(event.start_time).getTime() <= now
   const price = formatPrice(event.price_from)
 
   return (
-    <article className="event-card" style={{ '--accent': event.location_color }}>
-      <FallbackImage src={event.image} alt="" color={event.location_color} className="event-card-image" />
+    <article className={`event-card ${isPast ? 'is-past' : ''}`} style={{ '--accent': event.location_color }}>
+      <div className="event-card-media">
+        <FallbackImage src={event.image} alt="" color={event.location_color} className="event-card-image" />
+        {isPast && <span className="past-badge">Event has passed</span>}
+      </div>
 
       <div className="event-card-body">
         <div className="event-card-tags">
@@ -16,7 +22,10 @@ const Event = ({ event, showLocation = false }) => {
           {price && <span className="tag tag-muted">{price}</span>}
         </div>
 
-        <h3>{event.title}</h3>
+        <h3>
+          {event.title}
+          {isPast && <span className="visually-hidden"> (past event)</span>}
+        </h3>
 
         <p className="event-card-when">
           <time dateTime={event.start_time}>
@@ -33,7 +42,7 @@ const Event = ({ event, showLocation = false }) => {
 
         <p className="event-card-description">{event.description}</p>
 
-        <Countdown startTime={event.start_time} />
+        {!isPast && <Countdown startTime={event.start_time} />}
       </div>
     </article>
   )

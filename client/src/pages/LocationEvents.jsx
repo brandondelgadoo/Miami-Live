@@ -64,6 +64,11 @@ const LocationEvents = () => {
 
   const { name, neighborhood, address, city, state, zip, description, image, capacity, color } = location
 
+  // events arrive sorted by start time, so splitting keeps both lists in order
+  const now = Date.now()
+  const upcoming = events.filter((event) => new Date(event.start_time).getTime() > now)
+  const past = events.filter((event) => new Date(event.start_time).getTime() <= now)
+
   return (
     <main className="page location-page" style={{ '--accent': color }}>
       <section className="location-hero">
@@ -84,24 +89,41 @@ const LocationEvents = () => {
       </section>
 
       <div className="container">
-        <section className="section" aria-labelledby="events-heading">
+        <section className="section" aria-labelledby="upcoming-heading">
           <div className="section-header">
-            <h2 id="events-heading">Events at {name}</h2>
+            <h2 id="upcoming-heading">Upcoming at {name}</h2>
             <span className="muted">
-              {events.length} {events.length === 1 ? 'event' : 'events'}
+              {upcoming.length} {upcoming.length === 1 ? 'show' : 'shows'}
             </span>
           </div>
 
-          {events.length > 0 ? (
+          {upcoming.length > 0 ? (
             <div className="event-list">
-              {events.map((event) => (
+              {upcoming.map((event) => (
                 <Event key={event.id} event={event} />
               ))}
             </div>
           ) : (
-            <p className="empty-state">No events scheduled here yet. Check back soon!</p>
+            <p className="empty-state">No upcoming shows here yet. Check back soon!</p>
           )}
         </section>
+
+        {past.length > 0 && (
+          <section className="section" aria-labelledby="past-heading">
+            <div className="section-header">
+              <h2 id="past-heading">Past events</h2>
+              <span className="muted">
+                {past.length} {past.length === 1 ? 'show' : 'shows'}
+              </span>
+            </div>
+            <div className="event-list">
+              {/* most recent first */}
+              {[...past].reverse().map((event) => (
+                <Event key={event.id} event={event} />
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </main>
   )
