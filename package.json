@@ -1,0 +1,16 @@
+{
+  "name": "virtual-community-space",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Miami Live: a virtual community space for Miami music venues and their events",
+  "scripts": {
+    "postinstall": "npm install --prefix server && npm install --prefix client",
+    "reset": "npm run reset --prefix server",
+    "dev": "concurrently -n server,client -c blue,magenta \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "start": "npm start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
